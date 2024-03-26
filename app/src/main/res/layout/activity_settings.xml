@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="自动打卡时间(默认19:00):" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTime"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/textViewInterval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/timePicker"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="打开间隔(分钟最低1分钟):" />
+
+    <EditText
+        android:id="@+id/editTextInterval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewInterval"
+        android:layout_marginStart="16dp"
+        android:inputType="number" />
+
+    <CheckBox
+        android:id="@+id/checkBoxEnableInterval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextInterval"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="按固定间隔打开程序" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkBoxEnableInterval"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="保存" />
+
+</RelativeLayout>

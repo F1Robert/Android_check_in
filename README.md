@@ -1,2 +1,11 @@
-# Android_check_in
-Android端自动打卡程序
+### 说明
+
+#### 1.适用范围 
+
+目前支持Android 企业微信
+
+#### 2.扩展
+
+企业微信包名com.tencent.wework
+
+其它打卡应用只需修改代码中该包名即可完成定制
