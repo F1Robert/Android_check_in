@@ -15,6 +15,7 @@ import com.nolan.utills.checkin.ui.MainActivity;
 public class SettingsManager {
     private static final String PREF_NAME = "settings_pref";
     private static final String KEY_HOUR = "hour";
+    private static final String APP_NAME = "app";
     private static final String KEY_MINUTE = "minute";
     private static final String KEY_INTERVAL = "interval";
     private static final String KEY_ENABLE_INTERVAL = "enable_interval";
@@ -50,6 +51,32 @@ public class SettingsManager {
         editor.apply();
     }
 
+    public void saveApp(String appName) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(APP_NAME, appName);
+        editor.apply();
+        MainActivity.getHandler().post(new Runnable() {
+            @Override
+            public void run() {
+                // 发送消息到UI线程
+                Message message = MainActivity.getHandler().obtainMessage();
+                switch (appName) {
+                    case "com.tencent.wework":
+                        message.obj = "已设置:企业微信为默认打卡应用";
+                        break;
+                    case "com.alibaba.android.rimet":
+                        message.obj = "已设置:钉钉为默认打卡应用";
+                        break;
+                    case "ccom.ss.android.lark":
+                        message.obj = "已设置:飞书为默认打卡应用";
+                        break;
+                }
+                Log.e("handler", "run: 发送message");
+                MainActivity.getHandler().sendMessage(message);
+            }
+        });
+    }
+
     public int getHour() {
         return sharedPreferences.getInt(KEY_HOUR, 19);
     }
@@ -60,6 +87,10 @@ public class SettingsManager {
 
     public int getInterval() {
         return sharedPreferences.getInt(KEY_INTERVAL, 0);
+    }
+
+    public String geAppName() {
+        return sharedPreferences.getString(APP_NAME, "com.tencent.wework");
     }
 
     public boolean isIntervalEnabled() {

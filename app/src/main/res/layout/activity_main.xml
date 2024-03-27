@@ -1,26 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- 标题 -->
-    <TextView
-        android:id="@+id/textViewTitle"
+    <RelativeLayout
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F44336"
-        android:padding="16dp"
-        android:text="应用日志"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_height="64dp">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F44336"
+            android:padding="16dp"
+            android:text="日志"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/switch_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="120dp"
+            android:background="#F44336"
+            android:padding="16dp"
+            android:text="设置打卡应用"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/switch_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="#F44336"
+            android:padding="16dp"
+            android:text="隐藏界面"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
     <!-- 日志列表 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewLogs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/textViewTitle"
+        android:layout_below="@id/title"
+        android:background="@color/white"
         android:padding="16dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -29,7 +62,91 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
         android:src="@drawable/ic_settings" />
 
+    <!-- 下拉菜单 -->
+    <LinearLayout
+        android:id="@+id/switchAppWindow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="64dp"
+        android:background="#808080"
+        android:gravity="center"
+        android:padding="4dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:textAlignment="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="企业微信"
+                android:textAlignment="center"></TextView>
+            <!-- 企业微信 -->
+            <ImageView
+                android:id="@+id/wechat"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:padding="4dp"
+                android:src="@drawable/ic_wechat"
+                android:text="企业微信" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:textAlignment="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="钉钉"
+                android:textAlignment="center"></TextView>
+            <!-- 钉钉 -->
+            <ImageView
+                android:id="@+id/ding"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:padding="13dp"
+                android:src="@drawable/ic_ding"
+                android:text="钉钉" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:textAlignment="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="飞书"
+                android:textAlignment="center"></TextView>
+            <!-- 企业微信 -->
+            <!-- 飞书 -->
+            <ImageView
+                android:id="@+id/feishu"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_feishu"
+                android:text="飞书" />
+        </LinearLayout>
+
+
+    </LinearLayout>
 </RelativeLayout>

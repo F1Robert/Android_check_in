@@ -67,7 +67,7 @@ public class SettingsActivity extends AppCompatActivity {
         // 提示保存成功
         Toast.makeText(this, "设置已保存", Toast.LENGTH_SHORT).show();
 
-        startMainActivity();
+        //startMainActivity();
     }
 
     public void startMainActivity() {

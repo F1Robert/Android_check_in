@@ -12,15 +12,19 @@ import android.os.Message;
 import android.util.Log;
 
 import com.nolan.utills.checkin.ui.MainActivity;
+import com.nolan.utills.checkin.util.SettingsManager;
 
 public class AlarmReceiver extends BroadcastReceiver {
     private static final String TAG = "AlarmReceiver";
 
+    private SettingsManager settingsManager;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "Alarm received, starting the application...");
+        settingsManager = new SettingsManager(context);
         // 在这里启动你想要启动的应用程序
-        Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.wework");
+        Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(settingsManager.geAppName());
         if (launchIntent != null) {
             MainActivity.getHandler().post(new Runnable() {
                 @Override
